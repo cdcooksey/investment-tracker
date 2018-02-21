@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ticker:</strong>
+  <%= @trade.ticker.name %>
+</p>
+
+<p>
+  <strong>Shares:</strong>
+  <%= @trade.shares %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @trade.amount %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @trade.shares * @trade.amount %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @trade.user.email %>
+</p>
+
+<%= link_to 'Edit', edit_trade_path(@trade) %> |
+<%= link_to 'Back', trades_path %>
