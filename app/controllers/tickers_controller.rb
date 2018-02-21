@@ -1,5 +1,5 @@
 class TickersController < ApplicationController
-  before_action :set_ticker, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticker, only: [:edit, :update, :destroy]
 
   # GET /tickers
   # GET /tickers.json
@@ -10,6 +10,7 @@ class TickersController < ApplicationController
   # GET /tickers/1
   # GET /tickers/1.json
   def show
+    @ticker = Ticker.eager_load(:trades).find(params[:id])
   end
 
   # GET /tickers/new
