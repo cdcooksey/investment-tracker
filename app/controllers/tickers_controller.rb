@@ -4,7 +4,7 @@ class TickersController < ApplicationController
   # GET /tickers
   # GET /tickers.json
   def index
-    @tickers = Ticker.all
+    @tickers = Ticker.eager_load(:user).all
   end
 
   # GET /tickers/1
