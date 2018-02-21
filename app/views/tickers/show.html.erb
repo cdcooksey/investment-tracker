@@ -12,7 +12,37 @@
 
 <p>
   <strong>User:</strong>
-  <%= @ticker.user %>
+  <%= @ticker.user.email %>
+</p>
+
+<p>
+  <strong>Trades:</strong>
+  <br />
+
+  <table>
+    <thead>
+    <tr>
+      <th>Shares</th>
+      <th>Amount</th>
+      <th>Cost</th>
+      <th>Date</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <% @ticker.trades.each do |trade| %>
+      <tr>
+        <td><%= trade.shares %></td>
+        <td><%= number_to_currency(trade.amount) %></td>
+        <td><%= number_to_currency(trade.shares * trade.amount) %></td>
+        <td><%= trade.created_at.to_s %></td>
+      </tr>
+    <% end %>
+    </tbody>
+
+  </table>
+
 </p>
 
 <%= link_to 'Edit', edit_ticker_path(@ticker) %> |
