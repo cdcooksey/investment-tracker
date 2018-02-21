@@ -24,21 +24,36 @@
     <tr>
       <th>Shares</th>
       <th>Amount</th>
+      <th>Total Shares</th>
       <th>Cost</th>
+      <th>Total Cost</th>
+      <th>Average Cost</th>
       <th>Date</th>
     </tr>
     </thead>
 
     <tbody>
 
+    <% total_shares = 0 %>
+    <% total_cost = 0 %>
+    <% average_cost = 0 %>
+
     <% @ticker.trades.each do |trade| %>
+      <% total_shares += trade.shares %>
+      <% total_cost += trade.shares * trade.amount %>
+      <% average_cost = total_cost / total_shares %>
+
       <tr>
         <td><%= trade.shares %></td>
         <td><%= number_to_currency(trade.amount) %></td>
+        <td><%= total_shares %></td>
         <td><%= number_to_currency(trade.shares * trade.amount) %></td>
+        <td><%= number_to_currency(total_cost) %></td>
+        <td><%= number_to_currency(average_cost) %></td>
         <td><%= trade.created_at.to_s %></td>
       </tr>
     <% end %>
+
     </tbody>
 
   </table>
