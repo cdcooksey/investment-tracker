@@ -19,8 +19,8 @@
       <tr>
         <td><%= trade.ticker.name %></td>
         <td><%= trade.shares %></td>
-        <td><%= trade.amount %></td>
-        <td><%= trade.shares * trade.amount %></td>
+        <td><%= number_to_currency(trade.amount) %></td>
+        <td><%= number_to_currency(trade.shares * trade.amount) %></td>
         <td><%= trade.user.email %></td>
         <td><%= link_to 'Show', trade %></td>
         <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
