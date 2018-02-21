@@ -43,11 +43,6 @@
 
   </table>
 
-<br />
-
-<strong>Total Shares: </strong> <%= @ticker.trades.sum(:shares) %>
-<strong>Average Cost: </strong> <%= number_to_currency(@ticker.trades.sum(:amount) / @ticker.trades.sum(:shares)) %>
-
 </p>
 
 <%= link_to 'Edit', edit_ticker_path(@ticker) %> |
